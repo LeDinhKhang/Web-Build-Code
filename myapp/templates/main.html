@@ -1,0 +1,231 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>    
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet"/>   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    <title>Home page</title>
+    <link rel = "stylesheet" type="text/css" href="{%static './css/home.css'%}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+            <div class="container">
+
+                <a class="navbar-brand" href="{% url 'home'%}">
+                    <img src="{%static './images/logo_web.png'%}" width="100" height="100" alt="" class="d-inline-block align-middle mr-2">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'home'%}">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdown">
+                        Python
+                        </a>
+                        <div class="dropdown-content">
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Home</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Basic Syntax</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Variable Types</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Basic Operators</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Loops</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Numbers</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">String </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Lists</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Tuples</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Date & Time</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Functions</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Modules</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdown">
+                        C#
+                        </a>
+                        <div class="dropdown-content">
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Home</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Basic Syntax</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Variables</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Operators</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Loops</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">String</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Array</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Structure</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Enum</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Classes</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdown">
+                        Java
+                        </a>
+                        <div class="dropdown-content">
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Home</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Basic Syntax</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Constructors</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Variable Types</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Loop Control</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Numbers</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Characters</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Strings</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Arrays</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'theory'%}?id_theory=khang">Data & Time</a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdown">
+                        Python Exercise
+                        </a>
+                        <div class="dropdown-content">
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex1Python">Exercise 1</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex2Python">Exercise 2</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex3Python">Exercise 3</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex4Python">Exercise 4</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex5Python">Exercise 5</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex6Python">Exercise 6</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex7Python">Exercise 7</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex8Python">Exercise 8</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex9Python">Exercise 9</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex10Python">Exercise 10</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdown">
+                        C# Exercise
+                        </a>
+                        <div class="dropdown-content">
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex1c#">Exercise 1</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex2c#">Exercise 2</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex3c#">Exercise 3</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex4c#">Exercise 4</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex5c#">Exercise 5</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex6c#">Exercise 6</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex7c#">Exercise 7</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex8c#">Exercise 8</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex9c#">Exercise 9</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex10c#">Exercise 10</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdown">
+                        Java Exercise
+                        </a>
+                        <div class="dropdown-content">
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex1Java">Exercise 1</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex2Java">Exercise 2</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex3Java">Exercise 3</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex4Java">Exercise 4</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex5Java">Exercise 5</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex6Java">Exercise 6</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex7Java">Exercise 7</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex8Java">Exercise 8</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex9Java">Exercise 9</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'linkex1'%}?ex=ex10Java">Exercise 10</a>
+                        </div>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    {% block content %}
+        content 
+    {% endblock %}
+    <footer>
+        <div class="container-fluid padding">	
+            <div class="row text-center">
+                <div class="col-md-6">
+                    <hr class="light">
+                    <p>Group</p>
+                    <hr class="light">
+                    <p>Lê Đình Khang</p>
+                    <p>Nguyễn Ngọc Hòa</p>
+                </div>
+                <div class="col-md-6">				
+                    <hr class="light">
+                    <p>HCMUTE University of Technology and Education</p>
+                    <hr class="light">
+                    <p>Số 1 Võ Văn Ngân, phường Linh Trung, thành phố Thủ Đức</p>
+                </div>
+                <div class="col-12">
+                    <hr class="light-100">
+                    <h5>Cloud Computing</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

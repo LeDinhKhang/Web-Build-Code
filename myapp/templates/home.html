@@ -1,0 +1,65 @@
+{% extends "main.html" %}
+{% block content %}
+    <div class="container-fluid content">
+        <form action="{% url 'buildcode'%}" method="POST">
+            {% csrf_token%}
+        <div class="row">
+                <div class="input_code col-md-8 col-sm-7 col-xs-12">
+                    <h5>Input Code:</h5>
+                    <ul class="row">
+                        <li class="col-md-10 col-sm-9 col-xs-12">
+                                <textarea id="text" class="out" placeholder="input code" cols="100" rows="10" name="inputcode" value={{inputcode}}>{{inputcode}}</textarea>
+                        </li>
+                        <li class="col-md-2 col-sm-3 col-xs-12 btn-code">
+                                <select name="language" id="list" class="list">
+                                    <option value="python">Python</option>
+                                    <option value="java">Java</option>
+                                    <option value="c#">C#</option>
+    
+                                </select>
+                                <button class="btn btn-outline-success compile " type="submit"><i class="fas fa-play"></i></button>
+                                <br>
+                                <input type ="text" placeholder="InputValue" class="compile" name ="input_value">
+                            <!-- </div> -->
+                        </li>
+    
+                    </ul>
+                </div>
+                <div class="output_code col-md-4 col-sm-5 col-xs-12">
+                    <h5>Output Code:</h5>
+                        <textarea class="out" placeholder="output code" cols="100" rows="10" name="outputcode" readonly="readonly">{{outputcode}}</textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.getElementById('text').addEventListener('keydown', function(e) {
+            if (e.key == 'Tab') {
+              e.preventDefault();
+              var start = this.selectionStart;
+              var end = this.selectionEnd;
+          
+              // set textarea value to: text before caret + tab + text after caret
+              this.value = this.value.substring(0, start) +
+                "\t" + this.value.substring(end);
+          
+              // put caret at right position again
+              this.selectionStart =
+                this.selectionEnd = start + 1;
+            }
+          });
+    </script>
+    {% if language == "c#"%}
+    <script>
+        document.getElementById("list").selectedIndex = 2;
+    </script>
+    {% elif language == "java"%}
+    <script>
+        document.getElementById("list").selectedIndex = 1;
+    </script>
+    {%else%}
+    <script>
+        document.getElementById("list").selectedIndex = 0;
+    </script>
+    {%endif%}
+{% endblock %}
