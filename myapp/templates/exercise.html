@@ -1,0 +1,118 @@
+{% extends "main.html" %}
+{% block content %}
+    <div class="container-fluid content">
+        <form action="{% url 'buildcode_ex'%}?maso={{maso}}" method="POST">
+            {% csrf_token%}
+        <div class="row">
+            <div class="input_code col-md-8 col-sm-7 col-xs-12">
+                <span style="font-size: 1.6rem; color: #00FF99;">ĐỀ BÀI:{{ex}}</span>
+                <h6>Input Code:</h6>
+                <ul class="row">
+                    <li class="col-md-10 col-sm-9 col-xs-12">
+                            <textarea class="out" placeholder="Input code" cols="100" rows="10" name="inputcode" id="text">{{inputcode}}</textarea>
+                    </li>
+                    <li class="col-md-2 col-sm-3 col-xs-12 btn-code">
+                            <select name="language" id="list" class="list" onchange="select(this)">
+                                <option value="java">Java</option>
+                                <option value="python">Python</option>
+                                <option value="c#">C#</option>
+
+                            </select>
+                            <button class="btn btn-outline-success compile " type="submit"><i class="fas fa-play"></i></button>
+                        <!-- </div> -->
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="output_code col-md-4 col-sm-5 col-xs-12">
+                <br>
+                <span style="font-size: larger; color: red;display: none; " id ="incorrect"> Failure</span>
+                <span style="font-size: larger; color: greenyellow;display: none;" id ="correct"> Excellent</span>
+                <h6>Output:</h6>
+                    <textarea class="out" placeholder="Output" cols="100" rows="10" name="outputcode" disabled >{{outputcode}}</textarea>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12" style="font-size: larger;">
+                <ul class="row">
+                    <li class="col-md-8 col-sm-7 col-xs-12">
+                        <a href="{% url 'back'%}?maso={{maso}}" style="color: yellow;"><i class="fas fa-hand-point-left" style="color: coral;"></i>   Back </a>
+                    </li>
+                    <li class="col-md-4 col-sm-5 col-xs-12" style="text-align: right;">
+                        <a href="{% url 'continue_ex'%}?maso={{maso}}" style="color: yellow;"id="continue">Continue   <i class="fas fa-hand-point-right"id="continue_icon" style="color: chartreuse;"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+    </div>
+    <script>
+        document.getElementById('text').addEventListener('keydown', function(e) {
+            if (e.key == 'Tab') {
+              e.preventDefault();
+              var start = this.selectionStart;
+              var end = this.selectionEnd;
+          
+              // set textarea value to: text before caret + tab + text after caret
+              this.value = this.value.substring(0, start) +
+                "\t" + this.value.substring(end);
+          
+              // put caret at right position again
+              this.selectionStart =
+                this.selectionEnd = start + 1;
+            }
+          });
+    </script>
+    <script>
+        function select(obj)
+        {
+            var options = obj.children;
+            for (var i=0;i< options.length;i++){
+                if (options[i].selected && i==0){
+                    document.getElementById("text").placeholder = "class Main{\n\t public static void main(String[] args){\n\t\tSystem.out.println('Hello World!');\n\t}\n}"
+                }
+                if (options[i].selected && i==1){
+                    document.getElementById("text").placeholder =   "print('Khoa cong nghe thong tin SPK')"
+                }
+                if (options[i].selected && i==2){
+                    document.getElementById("text").placeholder = "using System;\n namespace NetCore.Docker\n{\n\t class Program\n\t {\n\t\tstatic void Main(string[] args)\n\t\t {\n\t\t\t Console.WriteLine('Hello World');\n\t\t}\n\t}\n}"
+                }
+            }
+        }
+    </script>
+    {% if result == "correct" %}
+    <script>
+        document.getElementById("correct").style.display = 'block';
+        document.getElementById("incorrect").style.display = 'none';
+        document.getElementById("continue").style.display = 'block'
+        document.getElementById("continue_icon").style.display = 'block';
+    </script>
+    {% elif result == "incorrect" %}
+    <script>
+        document.getElementById("incorrect").style.display = 'block';
+        document.getElementById("correct").style.display = 'none';
+        document.getElementById("continue").style.display = 'none';
+        document.getElementById("continue_icon").style.display = 'none';
+    </script>
+    {%else%}
+    <script>
+        document.getElementById("incorrect").style.display = 'none';
+        document.getElementById("correct").style.display = 'none';
+        document.getElementById("continue").style.display = 'none';
+        document.getElementById("continue_icon").style.display = 'none';
+    </script>
+    {% endif %}
+    {% if language == "c#"%}
+    <script>
+        document.getElementById("list").selectedIndex = 2;
+    </script>
+    {% elif language == "python" %}
+    <script>
+        document.getElementById("list").selectedIndex = 1;
+    </script>
+    {% else %}
+    <script>
+        document.getElementById("list").selectedIndex = 0;
+    </script>
+    {% endif %}
+    
+{% endblock %}
